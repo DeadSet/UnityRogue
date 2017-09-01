@@ -16,7 +16,7 @@ public abstract class MovingObject : MonoBehaviour {
     protected virtual void Start() {
         boxCollider = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
-        inverseMoveTime = 1f / moveTime;  //can multiply instead of divide, more perfomrant.
+        inverseMoveTime = 1f / moveTime;  //can multiply instead of divide, more performant
 
     }
 
@@ -44,8 +44,8 @@ public abstract class MovingObject : MonoBehaviour {
 
         while (sqrRemainingDistance > float.Epsilon)
         {
-            Vector3 NewPosiiotn = Vector3.MoveTowards(rb2D.position, end, inverseMoveTime * Time.deltaTime);
-            rb2D.MovePosition(NewPosiiotn);
+            Vector3 NewPosition = Vector3.MoveTowards(rb2D.position, end, inverseMoveTime * Time.deltaTime);
+            rb2D.MovePosition(NewPosition);
             sqrRemainingDistance = (transform.position - end).sqrMagnitude;
             yield return null;
         }
